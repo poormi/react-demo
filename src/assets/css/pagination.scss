@@ -1,0 +1,68 @@
+$mainColor: #52d4ff;
+$hoverColor: #99e7ff;
+$gray: #e1e1e1;
+
+.border-radius {
+	border-radius: 3px
+}
+.pagination {
+	float: right;
+
+	.prev, .next {
+		padding: .5em 1em;
+		border: solid 1px $mainColor;
+		background-color: #fff;
+		@extend .border-radius;
+		color: $mainColor;
+		&:hover{
+			border-color: $hoverColor;
+			color: $hoverColor;
+		}
+		&.disable {
+			border-color: $gray;
+			color: $gray
+		}
+	}
+	.pn-wrap {
+		display: inline-block;
+
+		.pn {
+			display: inline-block;
+			margin: 0 5px;
+			padding: .5em 1em;
+			border: solid 1px $gray;
+			@extend .border-radius;
+			&:hover{
+				border-color: $hoverColor;
+				color: $hoverColor;
+			}
+			&.cur,&.cur:hover {
+				background-color: $mainColor;
+				border-color: $mainColor;
+				color: #fff;
+			}
+		}
+	}
+	.jump-wrap {
+		display: inline-block;
+
+		.input {
+			width: 26px;
+			height: 24px;
+			border: solid 1px $gray;
+			&:hover{
+				border-color: $hoverColor;
+			}
+			&:focus{
+				border-color: $mainColor;
+			}
+		}
+		.button {
+			padding: 0;
+			height: 24px;
+			line-height: 24px;
+			width: 42px;
+			box-shadow: none
+		}
+	}
+}
