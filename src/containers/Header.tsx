@@ -7,6 +7,10 @@ import {
 	loadMenu,
 	loadUser
 } from '../redux/actions'
+import {
+	stateProps,
+	mapStateToProps
+} from '../redux/model'
 import Menu from '../components/common/Menu'
 import User from '../components/common/User'
 import map from 'lodash/map'
@@ -16,20 +20,12 @@ const loadData = props => {
 	props.loadUser()
 }
 
-interface Props {
-	user: object,
-	navs: Array<{
-		menuId: number|string,
-		parentId?: number|string,
-		name: string,
-		link: string,
-		subMenu: object[]
-	}>,
-	loadMenu: () => any, 
-	loadUser: () => any 
+interface headerProps extends stateProps{
+	loadMenu?: () => any, 
+	loadUser?: () => any 
 }
 
-class Header extends React.Component<Props, { user: { userName: '用户' }, navs: any[] }> {
+class Header extends React.Component<headerProps> {
 	componentWillMount(){
 		//loadData(this.props)
 	}
@@ -37,35 +33,39 @@ class Header extends React.Component<Props, { user: { userName: '用户' }, navs
 	render() {
 		const {
 			user,
-			navs
+			menus
 		} = this.props
 		return <div className="rt-header">
 			<div className="wrap">
-				<Menu items={navs} />
+				<Menu items={menus} />
 				<User user={user} />
 			</div>
 		</div>
 	}
 }
 
-const mapStateToProps = (state: any, ownProps: any): object => {
-	const {
-		result: {
-			menus = []
-		},
-		userState
-	} = state
-	let navs = []
-	if(Array.isArray(menus)) navs = menus
-	else navs = map(menus, (m, i) => m)
-	 
-	return {
-		...userState,
-		navs
+class headerMap implements mapStateToProps<headerProps>{
+	 handler(state: stateProps, ownProps: headerProps): headerProps {
+		const {
+			result: {
+				menus:ms = [] 
+			},
+			userState
+		} = state
+		let menus = []
+		if(Array.isArray(ms)) menus = ms
+		else menus = map(ms, (m, i) => m)
+		 
+		return {
+			...userState,
+			menus
+		}
 	}
 }
 
-export default connect(mapStateToProps, {
+const mapState = new headerMap()
+
+export default connect(mapState.handler, {
 	loadMenu,
 	loadUser
 })(Header)

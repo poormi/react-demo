@@ -20,7 +20,7 @@ export const initialState:stateProps = <stateProps>{
 	menus: []
 }
 
-const handleLineData = (data: any[], target: string): any[] => {
+const handleLineData = (data: object[], target: string): any[] => {
 	if(!data) return []
 	return data.map((v, i) => {
 		return v[target]

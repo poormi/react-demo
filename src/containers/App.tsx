@@ -9,7 +9,7 @@ require('css/main')
 
 interface Props { loading: boolean }
 
-class App extends React.Component<Props, {}> {
+class App extends React.Component<Props> {
 	render(){
 		const {
 			children,

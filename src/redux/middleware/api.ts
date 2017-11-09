@@ -10,7 +10,7 @@ import {
 const API_ROOT = require('../config.js').servers.proxy
 const URL_LOGIN = ''
 
-const _fetchWithTimeout = (requestPromise: Promise<object>, timeout:number = 30000):Promise<object> => {
+const _fetchWithTimeout = (requestPromise: object | Promise<object>, timeout:number = 30000):Promise<object | {}> => {
 	let timeoutAction = null
 	const timerPromise = new Promise((resolve, reject) => {
 		timeoutAction = () => {
