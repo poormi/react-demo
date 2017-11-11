@@ -16,6 +16,6 @@ export interface stateProps {
 
 import {stateProps} from '../redux/model'
 
-export declare interface mapStateToProps<T>{
+export declare interface mapStateToProps<T extends stateProps>{
 	handler(state: stateProps, ownProps: T): T
 }

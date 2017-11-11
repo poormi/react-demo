@@ -1,6 +1,7 @@
 import {
 	normalize,
-	schema
+	schema,
+	Schema
 } from 'normalizr'
 import fetch from 'isomorphic-fetch'
 import * as _ from 'lodash'
@@ -10,7 +11,12 @@ import {
 const API_ROOT = require('../config.js').servers.proxy
 const URL_LOGIN = ''
 
-const _fetchWithTimeout = (requestPromise: object | Promise<object>, timeout:number = 30000):Promise<object | {}> => {
+type fetchPromise = 
+	Promise<object> |
+	Promise<never> |
+	object
+
+const _fetchWithTimeout = (requestPromise: fetchPromise, timeout:number = 30000): fetchPromise => {
 	let timeoutAction = null
 	const timerPromise = new Promise((resolve, reject) => {
 		timeoutAction = () => {
@@ -24,10 +30,9 @@ const _fetchWithTimeout = (requestPromise: object | Promise<object>, timeout:num
 	return Promise.race([requestPromise, timerPromise])
 }
 
-
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
-const callApi = (endpoint:string, schema:{}) => {
+const callApi = (endpoint:string, schema: Schema): fetchPromise => {
 	const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint
 
 	return fetch(fullUrl, {
@@ -67,7 +72,7 @@ const callApi = (endpoint:string, schema:{}) => {
 		)
 }
 
-const menuSchema = new schema.Entity('menus', {}, {
+const menuSchema: schema.Entity = new schema.Entity('menus', {}, {
 	idAttribute: "menuId"
 })
 const channelSchema = {
@@ -113,7 +118,7 @@ export default store => next => action => {
 	if (params != void 0)
 		endpoint = `${endpoint}?req=${JSON.stringify(params)}`
 
-	const actionWith = data => {
+	const actionWith = (data):object => {
 		const finalAction = Object.assign({}, action, data)
 		delete finalAction[CALL_API]
 		return finalAction
@@ -124,7 +129,7 @@ export default store => next => action => {
 		type: requestType
 	}))
 
-	return callApi(endpoint, schema).then(
+	return (<Promise<object|never>>callApi(endpoint, schema)).then(
 		response => next(actionWith({
 			response,
 			...callAPI,

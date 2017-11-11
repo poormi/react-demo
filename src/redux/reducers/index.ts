@@ -36,7 +36,7 @@ const result = (state: stateProps = initialState, action): stateProps => {
 	return state
 }
 
-const userState = (state: stateProps = initialState, action) => {
+const userState = (state: stateProps = initialState, action): stateProps => {
 	let result = action.response || {},
 		target = action.params && action.params.target
 
