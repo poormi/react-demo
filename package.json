@@ -11,6 +11,8 @@
   "dependencies": {
     "@types/react": "^16.0.19",
     "@types/react-dom": "^16.0.2",
+    "@types/react-hot-loader": "^3.0.5",
+    "@types/react-redux": "^5.0.12",
     "classnames": "2.2.5",
     "clean-webpack-plugin": "0.1.15",
     "cookie-parser": "1.4.3",

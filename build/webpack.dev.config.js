@@ -76,10 +76,10 @@ const config = {
       exclude: /node_modules/,
       include: PATHS.src,
       enforce: "pre",
-      use: ['react-hot-loader/webpack', 'babel-loader', 'source-map-loader']
+      use: ['babel-loader', 'source-map-loader']
     }, {
-      test: /\.tsx?$/,
-      use: "awesome-typescript-loader"
+      test: /\.(ts|tsx)?$/,
+      use: ['react-hot-loader/webpack','awesome-typescript-loader']
     },{
       test: /\.(png|jpg|gif|svg)$/,
       use: 'url-loader?limit=8192'
