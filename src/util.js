@@ -44,7 +44,7 @@ export const tagList = {
 	'1003': {
 		name: '标签',
 		id: 'L003',
-		icon: 'search',
+		icon: 'three',
 		group: '2',
 		labels: [{
 			name: '标签',
@@ -66,7 +66,7 @@ export const tagList = {
 	'1004': {
 		name: '标签',
 		id: 'L004',
-		icon: 'list',
+		icon: 'four',
 		group: '2',
 		labels: [{
 			name: '标签',
@@ -88,7 +88,7 @@ export const tagList = {
 	'1005': {
 		name: '标签',
 		id: 'L005',
-		icon: 'promo',
+		icon: 'five',
 		group: '2',
 		labels: [{
 			name: '标签',
@@ -110,7 +110,7 @@ export const tagList = {
 	'1006': {
 		name: '标签',
 		id: 'L006',
-		icon: 'fourth',
+		icon: 'six',
 		group: '3',
 		labels: [{
 			name: '标签',
@@ -137,7 +137,7 @@ export const tagList = {
 	'1007': {
 		name: '标签',
 		id: 'L007',
-		icon: 'cart1',
+		icon: 'seven',
 		group: '4',
 		labels: [{
 			name: '标签',
@@ -159,7 +159,7 @@ export const tagList = {
 	'1008': {
 		name: '标签',
 		id: 'L008',
-		icon: 'cart2',
+		icon: 'eight',
 		group: '4',
 		labels: [{
 			name: '标签',
@@ -180,9 +180,9 @@ export const tagList = {
 	},
 	'1009': {
 		name: '标签',
-		note: '(APP)',
+		note: '(moon)',
 		id: 'L009',
-		icon: 'cart3',
+		icon: 'nine',
 		group: '4',
 		labels: [{
 			name: '标签',
@@ -200,7 +200,7 @@ export const tagList = {
 	},
 	'1010': {
 		name: '标签',
-		icon: 'pay',
+		icon: 'ten',
 		group: '5',
 		labels: [{
 			name: '标签',
@@ -220,9 +220,9 @@ export const tagList = {
 	},
 	'1011': {
 		name: '标签',
-		note: '(PC,WAP)',
+		note: '(walk)',
 		id: 'L011',
-		icon: 'checkout',
+		icon: 'eleven',
 		group: '5',
 		labels: [{
 			name: '标签',
@@ -243,7 +243,7 @@ export const tagList = {
 	'1101': {
 		name: '标签',
 		id: 'L101',
-		icon: 'login',
+		icon: 'twelve',
 		labels: [{
 			name: '标签',
 			value: '1001',
@@ -262,7 +262,7 @@ export const tagList = {
 	'1102': {
 		name: '标签',
 		id: 'L102',
-		icon: 'register',
+		icon: 'thirteen',
 		labels: [{
 			name: '标签',
 			value: '1001',
@@ -280,7 +280,7 @@ export const tagList = {
 	},
 	'0000': {
 		name: '标签',
-		icon: 'other',
+		icon: 'fourteen',
 		labels: [{
 			name: '标签',
 			value: '1001'

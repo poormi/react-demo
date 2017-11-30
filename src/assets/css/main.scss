@@ -6,3 +6,38 @@
 .rt-footer{
 	text-align: center;
 }
+
+.links-wrap{
+	display: flex;
+	align-items: center;
+}
+
+.card-wrap{
+	position: relative;
+	width: 190px;
+	height: 105px;
+	background-color: #fff;
+	z-index: 1;
+	.eme{
+		position: absolute;
+		top: 2px;
+		right: 2px;
+		width: 20px;
+		height: 20px;
+		background-color: red;
+		border-radius: 50%;
+		color: #fff;
+		text-align: center;
+		&:after{
+			content: '!';
+			font-weight: bold;
+		}
+	}
+}
+.card {
+	border-radius: 3px;
+	box-shadow: 2px 2px 5px 2px #e1e1e1;
+	&:hover{
+		border: solid 1px #e1e1e1;
+	}
+}

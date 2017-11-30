@@ -60,7 +60,7 @@ class Key extends Component {
 	}
 
 	renderCard = () => {
-		return (<div className="link-map">
+		return (<div className="links-wrap">
 			{
 				linkMap.map((v, i) => {
 					const n = v.split(',')
@@ -75,7 +75,7 @@ class Key extends Component {
 	}
 
 	render() {
-		return (<section className="link-node">
+		return (<section className="content-wrap">
 			<h3 className="tc pr">标题</h3>
 			{this.renderCard()}
 		</section>)
